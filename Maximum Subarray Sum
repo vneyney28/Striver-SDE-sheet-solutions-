@@ -1,0 +1,11 @@
+#include <bits/stdc++.h> 
+long long maxSubarraySum(int arr[], int n)
+{
+    long long msum=INT_MIN,csum=0;
+    for(int i=0;i<n;i++)
+    {
+        csum=(arr[i]>arr[i]+csum)?arr[i]:arr[i]+csum;
+        msum=(csum>msum)?csum:msum;
+    }
+    return (msum<0)?0:msum;
+}
