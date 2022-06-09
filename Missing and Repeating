@@ -1,0 +1,15 @@
+#include <bits/stdc++.h> 
+pair<int,int> missingAndRepeating(vector<int> &arr, int n)
+{
+	unordered_map<int,int>map;
+    int m,nn;
+    for(int i=1;i<=n;i++)
+        map[i]++;
+    for(auto x:arr)
+        map[x]++;
+    for(auto it:map){
+        if(it.second<2)m=it.first;
+        if(it.second>2)nn=it.first;
+    }
+    return {m,nn};	
+}
