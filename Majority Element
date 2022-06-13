@@ -1,0 +1,12 @@
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        int count=0,element;
+        for(auto x:nums){
+            if(!count)element=x;
+            if(x==element)++count;
+            else --count;
+        }
+        return element;
+    }
+};
