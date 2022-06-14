@@ -1,0 +1,19 @@
+#include <bits/stdc++.h> 
+bool sum2(int x,int high,vector<int>&a){
+    int i=high,j=a.size()-1;
+    while(i<j){
+        if(a[i]+a[j]==x)return true;
+        else if(a[i]+a[j]<x)i++;
+        else --j;
+    }
+    return false;
+}
+string fourSum(vector<int> a, int target, int n) {
+    sort(a.begin(),a.end());
+    for(int i=0;i<n;i++){
+        for(int j=i+1;j<n;j++){
+            if(sum2(target-(a[i]+a[j]),j+1,a))return "Yes";
+        }
+    }
+    return "No";
+}
