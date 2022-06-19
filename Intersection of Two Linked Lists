@@ -1,0 +1,13 @@
+int findIntersection(Node *h1, Node *h2)
+{
+    Node*p,*q;
+    p=h1;q=h2;        
+    while(h1!=h2)    
+    {                
+        h1=h1->next;h2=h2->next;
+        if(!h1&&!h2)return -1;
+        if(!h1)h1=q;
+        if(!h2)h2=p;                
+    }
+    return h1->data;
+}
