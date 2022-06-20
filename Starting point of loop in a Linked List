@@ -1,0 +1,19 @@
+class Solution {
+public:
+    ListNode *detectCycle(ListNode *head) {
+        if(!head)return NULL;
+        ListNode*slow,*fast;
+        slow=fast=head;
+        do{
+            slow=slow->next;
+            fast= fast&&fast->next?fast->next->next:NULL;
+            if(!fast&&!slow)return NULL;
+        }while(fast!=slow);
+        ListNode*p=head;
+        while(slow!=p)
+        {            
+            slow=slow->next;
+            p=p->next;
+        }return p;        
+    }
+};
