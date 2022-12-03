@@ -1,0 +1,14 @@
+#include <bits/stdc++.h> 
+double findNthRootOfM(int n, int m) {
+	double low=1;
+    double high=m;
+    double mid;
+    
+    while((high-low)>1e-7){
+        mid=(low+high)/2;
+        if(pow(mid,n)==m)return (double)mid;
+        else if(pow(mid,n)>m)high=mid;
+        else low=mid;
+    }
+    return (double)mid;        
+}
